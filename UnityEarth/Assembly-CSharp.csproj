@@ -52,8 +52,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\EarthRotation.cs" />
+     <Compile Include="Assets\Scripts\EarthManager.cs" />
      <Compile Include="Assets\Scripts\EarthTranslate.cs" />
+     <Compile Include="Assets\Scripts\EarthRotation.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/mitea2bal/Unity/Hub/Editor/2020.3.26f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
