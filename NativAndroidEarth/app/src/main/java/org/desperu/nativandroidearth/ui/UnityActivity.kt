@@ -5,14 +5,17 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.unity3d.player.UnityPlayerActivity
 import org.desperu.nativandroidearth.R
-import org.desperu.nativandroidearth.bridge.CommunicationBridge.callToUnityWithMessage
-import org.desperu.nativandroidearth.bridge.CommunicationBridge.callToUnityWithNoMessage
+import org.desperu.nativandroidearth.bridge.CommunicationBridge
 
+/**
+ * TODO
+ */
 class UnityActivity : UnityPlayerActivity() {
 
     // FOR DATA
@@ -29,19 +32,25 @@ class UnityActivity : UnityPlayerActivity() {
         return super.onCreateView(name, context, attrs)
     }
 
+    // TODO remove use layout...
+    /**
+     * Add button to over the Unity Play View.
+     */
     private fun addButton() {
         val button = Button(this)
+
         button.layoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
-            ConstraintLayout.LayoutParams.WRAP_CONTENT)
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
         button.text = "Call with no message"
         button.setOnClickListener {
-            if(toggle) {
+            if (toggle) {
                 button.text = "Call with Message"
-                callToUnityWithNoMessage()
+                communicationBridge.callToUnityWithNoMessage()
             } else {
                 button.text = "Call with no message"
-                callToUnityWithMessage("Hello Unity!")
+                communicationBridge.callToUnityWithMessage("Hello Unity!")
             }
             toggle = !toggle
         }
@@ -51,8 +60,31 @@ class UnityActivity : UnityPlayerActivity() {
         mUnityPlayer.addView(button)
     }
 
+    // TODO ??
     override fun onBackPressed() {
         super.onBackPressed()
         finishAffinity()
     }
+
+    private val communicationBridge = CommunicationBridge(
+        object : CommunicationBridge.CommunicationCallback {
+            override fun onNoParamCall() {
+                Log.d("UnityCalled", "Callback with no parameter")
+            }
+
+            override fun onOneParamCall(param: String) {
+                Log.d(
+                    "UnityCalled",
+                    "Callback with one parameter: $param"
+                )
+            }
+
+            override fun onTwoParamCall(param1: String, param2: Int) {
+                Log.d(
+                    "UnityCalled",
+                    "Callback with two parameters: $param1, $param2"
+                )
+            }
+        }
+    )
 }
