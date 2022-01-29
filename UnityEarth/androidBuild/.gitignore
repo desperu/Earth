@@ -10,8 +10,10 @@
 .DS_Store
 /launcher/build
 /unityLibrary/build
-/unityLibrary/src/main/Il2CppOutputProject
+/unityLibrary/src/main/Il2CppOutputProject/
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+/unityLibrary/src/main/jniStaticLibs/
+/unityLibrary/src/main/jniLibs/
