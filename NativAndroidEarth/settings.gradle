@@ -13,4 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "NativAndroidEarth"
-include ':app'
+include ':app', ':unityLibrary'
+project(':unityLibrary').projectDir = new File('../UnityEarth/androidBuild/unityLibrary1')
