@@ -6,7 +6,6 @@ import android.widget.FrameLayout
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.TextView
-import androidx.core.content.res.ResourcesCompat
 import org.desperu.nativandroidearth.R
 import org.desperu.nativandroidearth.base.BaseUnityPlayerActivity
 import org.desperu.nativandroidearth.bridge.EarthBridge

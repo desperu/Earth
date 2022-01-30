@@ -1,6 +1,5 @@
 package org.desperu.nativandroidearth.bridge
 
-import android.util.Log
 import com.unity3d.player.UnityPlayer
 import com.unity3d.player.UnityPlayer.UnitySendMessage
 import org.desperu.nativandroidearth.ui.unity.IUnityActivity
@@ -113,6 +112,5 @@ class EarthBridgeImpl : EarthBridge, KoinComponent {
      */
     private fun toEarth(functionName: String, params: String) {
         UnitySendMessage(EARTH, functionName, params)
-        Log.d("Send Message to Earth", "$EARTH.$functionName, $params")
     }
 }
