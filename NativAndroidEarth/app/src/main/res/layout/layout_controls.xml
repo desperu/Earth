@@ -17,7 +17,7 @@
         android:layout_weight="0.9"
         android:paddingTop="350dp"
         android:max="100"
-        android:progress="1"
+        android:progress="10"
         android:rotation="270" />
 
     <LinearLayout

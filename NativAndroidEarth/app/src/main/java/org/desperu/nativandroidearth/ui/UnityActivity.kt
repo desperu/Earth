@@ -1,7 +1,5 @@
 package org.desperu.nativandroidearth.ui
 
-import android.view.GestureDetector
-import android.view.ScaleGestureDetector
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
@@ -15,13 +13,13 @@ import org.desperu.nativandroidearth.extension.design.bindView
 import org.desperu.nativandroidearth.utils.INITIAL_ROTATION
 import org.desperu.nativandroidearth.utils.INITIAL_ZOOM
 import org.koin.android.ext.android.inject
+import kotlin.math.min
 
-// TODO to remove
 /**
- * Scale values.
+ * Earth Z values.
  */
-private const val MIN_SCALE = -10.0f
-private const val MAX_SCALE = 10.0f
+private const val MIN_Z = -9
+private const val MAX_Z = 91
 
 /**
  * Unity Activity activity, that wrap a Unity engine to display 3D animation.
@@ -32,8 +30,6 @@ private const val MAX_SCALE = 10.0f
  */
 class UnityActivity : BaseUnityPlayerActivity(bridgeModule) {
 
-    // FOR DATA
-    private var toggle = false
     // COMMUNICATION
     private val earthBridge: EarthBridge by inject()
     // FOR DESIGN
@@ -41,16 +37,6 @@ class UnityActivity : BaseUnityPlayerActivity(bridgeModule) {
     private val resetButton: Button by bindView(R.id.button_reset)
     private val rotationSeekBar: SeekBar by bindView(R.id.rotation_seek_bar)
     private val zoomSeekBar: SeekBar by bindView(R.id.zoom_seek_bar)
-    // Detectors instances
-    private lateinit var gestureDetector: GestureDetector
-    private lateinit var scaleGestureDetector: ScaleGestureDetector
-    // TODO to remove
-//    // Scale values, for zoom
-//    private val minScale get() = show_image_view?.scaleFactor ?: MIN_SCALE
-//    private val middleScale get() = minScale * MIDDLE_SCALE
-//    private val maxScale get() = minScale * MAX_SCALE
-//    private var scaleFactor: Float = minScale
-//    private val isZoomed: Boolean get() = image.scaleX > minScale
 
     // -----------------
     // BASE METHODS
@@ -121,8 +107,9 @@ class UnityActivity : BaseUnityPlayerActivity(bridgeModule) {
     private val zoomSeekBarListener = object : OnSeekBarChangeListener {
 
         override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-            // Correct zoom vale t be able to zoom in and zoom out
-            earthBridge.updateZoom(p1 - 50)
+            // Correct zoom value to be able to zoom in and zoom out
+            val zoom = min(p1 + MIN_Z, MAX_Z)
+            earthBridge.updateZoom(zoom)
         }
 
         override fun onStartTrackingTouch(p0: SeekBar?) {}
