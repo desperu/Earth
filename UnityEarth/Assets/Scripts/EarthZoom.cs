@@ -8,10 +8,9 @@ using UnityEngine;
 public class EarthZoom : MonoBehaviour
 {
 	// FOR DATA
-	const float initialPositionX = -0.095f;
-	const float initialPositionY = 0.0f;
+	const float initialPosition = 0.0f;
 	const float initialPositionZ = 0.8f;
-	private Vector3 startPosition = new Vector3(initialPositionX, initialPositionY, initialPositionZ);
+	private Vector3 startPosition = new Vector3(initialPosition, initialPosition, initialPositionZ);
 	private Vector3 positionChange;
 	
 	// FOR COMMUNICATION
@@ -57,7 +56,7 @@ public class EarthZoom : MonoBehaviour
 	{
 		Debug.Log($"Coming from Android: updateScale {zoom}");
 
-		positionChange = new Vector3(initialPositionX, initialPositionY, int.Parse(zoom));
+		positionChange = new Vector3(initialPosition, initialPosition, int.Parse(zoom));
 		communicationBridge.Call("displayZoom", zoom);
 	}
 }
