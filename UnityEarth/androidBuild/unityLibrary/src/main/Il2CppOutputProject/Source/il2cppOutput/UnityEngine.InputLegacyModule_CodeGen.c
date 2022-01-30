@@ -20,14 +20,14 @@ extern void CameraRaycastHelper_RaycastTry2D_mAA0B0BAC7BE8A2F640A236BB6655EB47E5
 extern void CameraRaycastHelper_RaycastTry_Injected_mFAED8F3DC204691A92849F36D8BC69CFE68F43E8 (void);
 // 0x00000004 UnityEngine.GameObject UnityEngine.CameraRaycastHelper::RaycastTry2D_Injected(UnityEngine.Camera,UnityEngine.Ray&,System.Single,System.Int32)
 extern void CameraRaycastHelper_RaycastTry2D_Injected_m1AB3B5B899C17D5D6FC41D8F8CF2BE549F7D9F21 (void);
-// 0x00000005 System.Boolean UnityEngine.Input::GetKeyDownString(System.String)
-extern void Input_GetKeyDownString_mEDA5905B79F1A49A639B0407C50F5FC857DB6A1D (void);
+// 0x00000005 System.Boolean UnityEngine.Input::GetKeyInt(UnityEngine.KeyCode)
+extern void Input_GetKeyInt_mCBF4A2379EF913E589DFF4AE9C9407D0AC6B4E4D (void);
 // 0x00000006 System.Boolean UnityEngine.Input::GetMouseButton(System.Int32)
 extern void Input_GetMouseButton_m27BF2DDBF38A38787B83A13D3E6F0F88F7C834C1 (void);
 // 0x00000007 System.Boolean UnityEngine.Input::GetMouseButtonDown(System.Int32)
 extern void Input_GetMouseButtonDown_m466D81FDCC87C9CB07557B39DCB435EB691F1EF3 (void);
-// 0x00000008 System.Boolean UnityEngine.Input::GetKeyDown(System.String)
-extern void Input_GetKeyDown_m9D556E728119BEB64AA624EBE82931367B6573A5 (void);
+// 0x00000008 System.Boolean UnityEngine.Input::GetKey(UnityEngine.KeyCode)
+extern void Input_GetKey_mFDD450A4C61F2930928B12287FFBD1ACCB71E429 (void);
 // 0x00000009 UnityEngine.Vector3 UnityEngine.Input::get_mousePosition()
 extern void Input_get_mousePosition_m79528BC2F30C57054641F709C855130AE586AC0E (void);
 // 0x0000000A System.Void UnityEngine.Input::get_mousePosition_Injected(UnityEngine.Vector3&)
@@ -52,10 +52,10 @@ static Il2CppMethodPointer s_methodPointers[17] =
 	CameraRaycastHelper_RaycastTry2D_mAA0B0BAC7BE8A2F640A236BB6655EB47E5408C9D,
 	CameraRaycastHelper_RaycastTry_Injected_mFAED8F3DC204691A92849F36D8BC69CFE68F43E8,
 	CameraRaycastHelper_RaycastTry2D_Injected_m1AB3B5B899C17D5D6FC41D8F8CF2BE549F7D9F21,
-	Input_GetKeyDownString_mEDA5905B79F1A49A639B0407C50F5FC857DB6A1D,
+	Input_GetKeyInt_mCBF4A2379EF913E589DFF4AE9C9407D0AC6B4E4D,
 	Input_GetMouseButton_m27BF2DDBF38A38787B83A13D3E6F0F88F7C834C1,
 	Input_GetMouseButtonDown_m466D81FDCC87C9CB07557B39DCB435EB691F1EF3,
-	Input_GetKeyDown_m9D556E728119BEB64AA624EBE82931367B6573A5,
+	Input_GetKey_mFDD450A4C61F2930928B12287FFBD1ACCB71E429,
 	Input_get_mousePosition_m79528BC2F30C57054641F709C855130AE586AC0E,
 	Input_get_mousePosition_Injected_m4E5460D301ECE27CC322AB79C0914A4503ABC06E,
 	SendMouseEvents_SetMouseMoved_mEC659144183FB490A2E1F12112C8F08569A511CD,
@@ -77,10 +77,10 @@ static const int32_t s_InvokerIndices[17] =
 	1035,
 	1024,
 	1024,
-	1460,
 	1457,
 	1457,
-	1460,
+	1457,
+	1457,
 	1510,
 	1480,
 	1511,

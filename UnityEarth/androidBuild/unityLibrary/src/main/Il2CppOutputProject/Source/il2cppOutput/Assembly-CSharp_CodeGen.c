@@ -12,50 +12,50 @@
 
 
 
-// 0x00000001 System.Void EarthManager::Start()
-extern void EarthManager_Start_m336158545A601997993FF66B221CD0E58BF3BB21 (void);
-// 0x00000002 System.Void EarthManager::Update()
-extern void EarthManager_Update_m3B590C0C4E983CCB26F1D81F3E2E5043A1E7B305 (void);
-// 0x00000003 System.Void EarthManager::.ctor()
-extern void EarthManager__ctor_m09438DD8C911822E5BB44AA57A125600EC33EE3F (void);
-// 0x00000004 System.Void EarthRotation::Update()
+// 0x00000001 System.Void EarthRotation::Start()
+extern void EarthRotation_Start_m742E0ADC6EA91C604AAFADD4A4E50600624D3106 (void);
+// 0x00000002 System.Void EarthRotation::Update()
 extern void EarthRotation_Update_m65907604F4C6A1956191C457F8D30C55DF4E72D4 (void);
-// 0x00000005 System.Void EarthRotation::CallFromAndroidWithNoMessage()
-extern void EarthRotation_CallFromAndroidWithNoMessage_m2254984FA09F744276306F90786E2691D4B806BC (void);
-// 0x00000006 System.Void EarthRotation::CallFromAndroidWithMessage(System.String)
-extern void EarthRotation_CallFromAndroidWithMessage_m74FCE0D30F2289204DDE0685496374B096FB900C (void);
-// 0x00000007 System.Void EarthRotation::.ctor()
+// 0x00000003 System.Void EarthRotation::UpdateRotation(System.String)
+extern void EarthRotation_UpdateRotation_m4AF4BC25A54E85E887678CEC1FD3FF2A01A5045B (void);
+// 0x00000004 System.Void EarthRotation::ResetRotation()
+extern void EarthRotation_ResetRotation_mCF9858730B71AD2A36707CC0E045EF35EC4E1044 (void);
+// 0x00000005 System.Void EarthRotation::.ctor()
 extern void EarthRotation__ctor_mE9AE61AAC72419A2C8C938AD8B8C81539F1B2FB8 (void);
-// 0x00000008 System.Void EarthTranslate::Start()
-extern void EarthTranslate_Start_mD0F3811DF8B2EFAF5EFACA97DA57B835B7F30AB5 (void);
-// 0x00000009 System.Void EarthTranslate::Update()
-extern void EarthTranslate_Update_m817F391BE61615B9BE047B04CCD9A62B30768995 (void);
-// 0x0000000A System.Void EarthTranslate::.ctor()
-extern void EarthTranslate__ctor_m5DEA8663032ECCD24962BE1685B1F2541C41A888 (void);
+// 0x00000006 System.Void EarthZoom::Start()
+extern void EarthZoom_Start_mB0CDB772590A92A4E40495E811F6A1CB55EE0603 (void);
+// 0x00000007 System.Void EarthZoom::Update()
+extern void EarthZoom_Update_mC63EDE4C861D06B0CD1E92C132743D1FFA364842 (void);
+// 0x00000008 System.Void EarthZoom::ResetScale()
+extern void EarthZoom_ResetScale_m371EC753856E04B7815742185CF72164CA5729A2 (void);
+// 0x00000009 System.Void EarthZoom::UpdateScale(System.String)
+extern void EarthZoom_UpdateScale_m5CE3A77424C21B9C7D7A506C974E04B28CFD2FDE (void);
+// 0x0000000A System.Void EarthZoom::.ctor()
+extern void EarthZoom__ctor_m05A7406BB3C7936281D374FFEAFFB3637509D3E0 (void);
 static Il2CppMethodPointer s_methodPointers[10] = 
 {
-	EarthManager_Start_m336158545A601997993FF66B221CD0E58BF3BB21,
-	EarthManager_Update_m3B590C0C4E983CCB26F1D81F3E2E5043A1E7B305,
-	EarthManager__ctor_m09438DD8C911822E5BB44AA57A125600EC33EE3F,
+	EarthRotation_Start_m742E0ADC6EA91C604AAFADD4A4E50600624D3106,
 	EarthRotation_Update_m65907604F4C6A1956191C457F8D30C55DF4E72D4,
-	EarthRotation_CallFromAndroidWithNoMessage_m2254984FA09F744276306F90786E2691D4B806BC,
-	EarthRotation_CallFromAndroidWithMessage_m74FCE0D30F2289204DDE0685496374B096FB900C,
+	EarthRotation_UpdateRotation_m4AF4BC25A54E85E887678CEC1FD3FF2A01A5045B,
+	EarthRotation_ResetRotation_mCF9858730B71AD2A36707CC0E045EF35EC4E1044,
 	EarthRotation__ctor_mE9AE61AAC72419A2C8C938AD8B8C81539F1B2FB8,
-	EarthTranslate_Start_mD0F3811DF8B2EFAF5EFACA97DA57B835B7F30AB5,
-	EarthTranslate_Update_m817F391BE61615B9BE047B04CCD9A62B30768995,
-	EarthTranslate__ctor_m5DEA8663032ECCD24962BE1685B1F2541C41A888,
+	EarthZoom_Start_mB0CDB772590A92A4E40495E811F6A1CB55EE0603,
+	EarthZoom_Update_mC63EDE4C861D06B0CD1E92C132743D1FFA364842,
+	EarthZoom_ResetScale_m371EC753856E04B7815742185CF72164CA5729A2,
+	EarthZoom_UpdateScale_m5CE3A77424C21B9C7D7A506C974E04B28CFD2FDE,
+	EarthZoom__ctor_m05A7406BB3C7936281D374FFEAFFB3637509D3E0,
 };
 static const int32_t s_InvokerIndices[10] = 
 {
-	856,
-	856,
-	856,
 	856,
 	856,
 	742,
 	856,
 	856,
 	856,
+	856,
+	856,
+	742,
 	856,
 };
 extern const CustomAttributesCacheGenerator g_AssemblyU2DCSharp_AttributeGenerators[];
