@@ -44,8 +44,6 @@ public class EarthZoom : MonoBehaviour
 	 */
 	public void ResetScale()
 	{
-		Debug.Log("Coming from Android: resetScale");
-
         positionChange = startPosition;
 	}
 
@@ -54,9 +52,6 @@ public class EarthZoom : MonoBehaviour
 	 */
 	public void UpdateScale(string zoom)
 	{
-		Debug.Log($"Coming from Android: updateScale {zoom}");
-
 		positionChange = new Vector3(initialPosition, initialPosition, int.Parse(zoom));
-		communicationBridge.Call("displayZoom", zoom);
 	}
 }

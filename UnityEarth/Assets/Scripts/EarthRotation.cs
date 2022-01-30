@@ -32,7 +32,7 @@ public class EarthRotation : MonoBehaviour
 		gameObject.transform.Rotate(0f, newSpeed, 0f);
 
 		// Send data to Android
-		communicationBridge.Call("displayRotation", $"{speed}", $"{newSpeed}");
+		communicationBridge.Call("displayRotation", $"{newSpeed}");
 		
 		if (Application.platform == RuntimePlatform.Android)
 		{
