@@ -11,7 +11,7 @@
     <SeekBar
         android:id="@+id/zoom_seek_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/default_margin"
         android:layout_weight="0.9"
@@ -28,14 +28,29 @@
         android:gravity="bottom"
         android:background="@android:color/transparent">
 
-        <SeekBar
-            android:id="@+id/rotation_seek_bar"
-            android:layout_width="@dimen/button_rotation_width"
-            android:layout_height="@dimen/button_rotation_height"
-            android:layout_gravity="bottom|center_horizontal"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal"
             android:layout_marginBottom="@dimen/seek_bar_margin_bottom"
-            android:max="500"
-            android:progress="40" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_rotation_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
+
+            <SeekBar
+                android:id="@+id/rotation_seek_bar"
+                android:layout_width="@dimen/button_rotation_width"
+                android:layout_height="@dimen/button_rotation_height"
+                android:max="500"
+                android:progress="40" />
+
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/button_reset"

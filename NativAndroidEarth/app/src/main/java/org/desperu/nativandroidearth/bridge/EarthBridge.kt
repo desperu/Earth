@@ -3,6 +3,7 @@ package org.desperu.nativandroidearth.bridge
 import android.util.Log
 import com.unity3d.player.UnityPlayer
 import com.unity3d.player.UnityPlayer.UnitySendMessage
+import org.desperu.nativandroidearth.ui.unity.IUnityActivity
 import org.desperu.nativandroidearth.utils.*
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -52,6 +53,7 @@ class EarthBridgeImpl : EarthBridge, KoinComponent {
 
     // FOR COMMUNICATION
     private val earthBridge: EarthBridge by inject { parametersOf(this) }
+    private val activity: IUnityActivity? get() = getKoin().getOrNull()
 
     // -----------------
     // METHODS OVERRIDES
@@ -88,6 +90,15 @@ class EarthBridgeImpl : EarthBridge, KoinComponent {
      */
     override fun resetZoom() {
         toEarth(RESET_SCALE, "")
+    }
+
+    /**
+     * Call from Unity to display the current rotation speed value of the Earth.
+     *
+     * @param rotation  the current rotation value.
+     */
+    fun displayRotation(rotation: String) {
+        activity?.displayRotation(rotation)
     }
 
     // -----------------

@@ -11,5 +11,6 @@
     <string name="tv_zoom">Zoom</string>
     <string name="tv_rotation">Rotation</string>
     <string name="button_reset">Reset</string>
+    <string name="tv_rotation_speed">New rotation speed : %1$s</string>
 
 </resources>

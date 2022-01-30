@@ -23,7 +23,7 @@
         </activity>
 
         <!-- Unity Activity -->
-        <activity android:name=".ui.UnityActivity"
+        <activity android:name=".ui.unity.UnityActivity"
             android:parentActivityName=".ui.MainActivity"
             android:exported="true"/>
     </application>

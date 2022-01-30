@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import org.desperu.nativandroidearth.R
+import org.desperu.nativandroidearth.ui.unity.UnityActivity
 
 class MainActivity : AppCompatActivity() {
 
