@@ -3,12 +3,15 @@
     package="org.desperu.nativandroidearth">
 
     <application
+        android:name=".NativAndroidEarth"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NativAndroidEarth">
+        android:theme="@style/AppTheme">
+
+        <!-- Main Activity -->
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
@@ -20,7 +23,9 @@
         </activity>
 
         <!-- Unity Activity -->
-        <activity android:name=".ui.UnityActivity"/>
+        <activity android:name=".ui.unity.UnityActivity"
+            android:parentActivityName=".ui.MainActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
