@@ -8,23 +8,31 @@ using UnityEngine;
 public class EarthRotation : MonoBehaviour
 {
 	// FOR DATA
-	private AndroidJavaObject communicationBridge;
 	private float speed = 40f;
+	
+	// FOR COMMUNICATION
+	private AndroidJavaObject communicationBridge;
 
 	// -----------------
 	// BASE FUNCTIONS
 	// -----------------
 	
+	// Start is called before the first frame update
 	private void Start()
 	{
 		// Instanciate the object for the communication with the android software
 		communicationBridge = new AndroidJavaObject(
-			"com.bittreat.apps.unitycommunicationtest.CommunicationBridge");
+			"org.desperu.nativandroidearth.bridge.EarthBridgeImpl");
 	}
 
+	// Update is called once per frame
 	private void Update()
 	{
-		gameObject.transform.Rotate(0f, speed * Time.deltaTime, 0f);
+		float newSpeed = speed * Time.deltaTime;
+		gameObject.transform.Rotate(0f, newSpeed, 0f);
+
+		// Send data to Android
+		communicationBridge.Call("displayRotation", $"{speed}", $"{newSpeed}");
 		
 		if (Application.platform == RuntimePlatform.Android)
 		{
@@ -39,34 +47,19 @@ public class EarthRotation : MonoBehaviour
 	// COMMUNICATION
 	// -----------------
 
-	public void CallFromAndroidWithNoMessage()
+	/**
+	 * To update the rotation value from Android call.
+	 */
+	public void UpdateRotation(string newSpeed)
 	{
-		speed = speed * 2;
+		speed = int.Parse(newSpeed);
 	}
 
-	public void CallFromAndroidWithMessage(string value)
+	/**
+	 * To reset the rotation from Android call.
+	 */
+	public void ResetRotation()
 	{
-		Debug.Log($"Coming from Android: {value}");
-
-		if (speed <= 81f)
-		{
-			communicationBridge.Call("callFromUnityWithNoParameters");
-			speed = 80f;
-		}
-		else if (speed <= 170f)
-		{
-			communicationBridge.Call(
-				"callFromUnityWithOneParameter",
-				"Hello from Unity!");
-			speed = 160f;
-		}
-		else if (speed <= 330f)
-		{
-			communicationBridge.Call(
-				"callFromUnityWithTwoParameters",
-				"The speed was: ",
-				(int) speed);
-			speed = 40f;
-		}
+		speed = 40f;
 	}
 }
