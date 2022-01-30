@@ -42,7 +42,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Unity Earth lib
-    implementation files('../libs/unityLibrary.aar')
+    implementation files('libs/unityEarthLibrary.aar')
 
     // Koin
     implementation "io.insert-koin:koin-android:$koin_version"

@@ -29,7 +29,7 @@ private const val MAX_Z = 91
  * Unity Activity activity, that wrap a Unity engine to display 3D animation.
  *
  * @property bridgeModule   the bridge koin module to load at start.
- * @property unityModule    the unity activty module to load at start.
+ * @property unityModule    the unity activity module to load at start.
  *
  * @constructor Instantiates a new MainActivity.
  */
