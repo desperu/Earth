@@ -1,90 +1,132 @@
 package org.desperu.nativandroidearth.ui
 
-import android.content.Context
-import android.graphics.Color
-import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.AttributeSet
-import android.util.Log
+import android.view.GestureDetector
+import android.view.ScaleGestureDetector
 import android.view.View
 import android.widget.Button
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.unity3d.player.UnityPlayerActivity
+import android.widget.FrameLayout
+import android.widget.SeekBar
+import android.widget.SeekBar.OnSeekBarChangeListener
 import org.desperu.nativandroidearth.R
-import org.desperu.nativandroidearth.bridge.CommunicationBridge
+import org.desperu.nativandroidearth.base.BaseUnityPlayerActivity
+import org.desperu.nativandroidearth.bridge.EarthBridge
+import org.desperu.nativandroidearth.di.module.bridgeModule
+import org.desperu.nativandroidearth.extension.design.bindView
+import org.desperu.nativandroidearth.utils.INITIAL_ROTATION
+import org.desperu.nativandroidearth.utils.INITIAL_ZOOM
+import org.koin.android.ext.android.inject
+
+// TODO to remove
+/**
+ * Scale values.
+ */
+private const val MIN_SCALE = -10.0f
+private const val MAX_SCALE = 10.0f
 
 /**
- * TODO
+ * Unity Activity activity, that wrap a Unity engine to display 3D animation.
+ *
+ * @property bridgeModule the koin of the activity to load at start.
+ *
+ * @constructor Instantiates a new MainActivity.
  */
-class UnityActivity : UnityPlayerActivity() {
+class UnityActivity : BaseUnityPlayerActivity(bridgeModule) {
 
     // FOR DATA
     private var toggle = false
+    // COMMUNICATION
+    private val earthBridge: EarthBridge by inject()
+    // FOR DESIGN
+    private lateinit var layoutControls: View
+    private val resetButton: Button by bindView(R.id.button_reset)
+    private val rotationSeekBar: SeekBar by bindView(R.id.rotation_seek_bar)
+    private val zoomSeekBar: SeekBar by bindView(R.id.zoom_seek_bar)
+    // Detectors instances
+    private lateinit var gestureDetector: GestureDetector
+    private lateinit var scaleGestureDetector: ScaleGestureDetector
+    // TODO to remove
+//    // Scale values, for zoom
+//    private val minScale get() = show_image_view?.scaleFactor ?: MIN_SCALE
+//    private val middleScale get() = minScale * MIDDLE_SCALE
+//    private val maxScale get() = minScale * MAX_SCALE
+//    private var scaleFactor: Float = minScale
+//    private val isZoomed: Boolean get() = image.scaleX > minScale
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        setContentView(R.layout.actcivity_unity)
+    // -----------------
+    // BASE METHODS
+    // -----------------
+
+    override fun getActivityView(): View = mUnityPlayer
+
+    override fun configureDesign() {
+        addLayoutControls()
+        addButtonsControlListener()
     }
 
-    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
-        addButton()
+    // -----------------
+    // CONFIGURATION
+    // -----------------
 
-        return super.onCreateView(name, context, attrs)
-    }
-
-    // TODO remove use layout...
     /**
-     * Add button to over the Unity Play View.
+     * Set buttons control listeners to handle Earth Game Object rotation and zoom.
      */
-    private fun addButton() {
-        val button = Button(this)
+    private fun addButtonsControlListener() {
+        resetButton.setOnClickListener {
+            rotationSeekBar.progress = INITIAL_ROTATION
+            earthBridge.resetRotation()
 
-        button.layoutParams = ConstraintLayout.LayoutParams(
-            ConstraintLayout.LayoutParams.WRAP_CONTENT,
-            ConstraintLayout.LayoutParams.WRAP_CONTENT
+            zoomSeekBar.progress = INITIAL_ZOOM
+            earthBridge.resetZoom()
+        }
+        rotationSeekBar.setOnSeekBarChangeListener(rotationSeekBarListener)
+        zoomSeekBar.setOnSeekBarChangeListener(zoomSeekBarListener)
+    }
+
+    // -----------------
+    // UI
+    // -----------------
+
+    /**
+     * Add layout controls buttons layout over the Unity Play View.
+     */
+    private fun addLayoutControls() {
+        layoutControls = layoutInflater.inflate(R.layout.layout_controls, mUnityPlayer)
+        layoutControls.layoutParams = FrameLayout.LayoutParams(
+            FrameLayout.LayoutParams.MATCH_PARENT,
+            FrameLayout.LayoutParams.MATCH_PARENT
         )
-        button.text = "Call with no message"
-        button.setOnClickListener {
-            if (toggle) {
-                button.text = "Call with Message"
-                communicationBridge.callToUnityWithNoMessage()
-            } else {
-                button.text = "Call with no message"
-                communicationBridge.callToUnityWithMessage("Hello Unity!")
-            }
-            toggle = !toggle
-        }
-
-        button.setBackgroundColor(Color.GREEN)
-        button.setTextColor(Color.RED)
-        mUnityPlayer.addView(button)
     }
 
-    // TODO ??
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finishAffinity()
+    // -----------------
+    // LISTENERS
+    // -----------------
+
+    /**
+     * Rotation Seek Bar change listener, to handle new progress value.
+     */
+    private val rotationSeekBarListener = object : OnSeekBarChangeListener {
+
+        override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+            earthBridge.updateRotation(p1)
+        }
+
+        override fun onStartTrackingTouch(p0: SeekBar?) {}
+
+        override fun onStopTrackingTouch(p0: SeekBar?) {}
     }
 
-    private val communicationBridge = CommunicationBridge(
-        object : CommunicationBridge.CommunicationCallback {
-            override fun onNoParamCall() {
-                Log.d("UnityCalled", "Callback with no parameter")
-            }
+    /**
+     * Zoom Seek Bar change listener, to handle new progress value.
+     */
+    private val zoomSeekBarListener = object : OnSeekBarChangeListener {
 
-            override fun onOneParamCall(param: String) {
-                Log.d(
-                    "UnityCalled",
-                    "Callback with one parameter: $param"
-                )
-            }
-
-            override fun onTwoParamCall(param1: String, param2: Int) {
-                Log.d(
-                    "UnityCalled",
-                    "Callback with two parameters: $param1, $param2"
-                )
-            }
+        override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+            // Correct zoom vale t be able to zoom in and zoom out
+            earthBridge.updateZoom(p1 - 50)
         }
-    )
+
+        override fun onStartTrackingTouch(p0: SeekBar?) {}
+
+        override fun onStopTrackingTouch(p0: SeekBar?) {}
+    }
 }

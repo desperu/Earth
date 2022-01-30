@@ -14,10 +14,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        // TODO to remove ??
-        // Enable multiDex
-//        multiDexEnabled true
     }
 
     buildTypes {
@@ -50,6 +46,4 @@ dependencies {
 
     // Koin
     implementation "io.insert-koin:koin-android:$koin_version"
-
-//    implementation "androidx.multidex:multidex:2.0.1" TODO
 }

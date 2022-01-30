@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">NativAndroidEarth</string>
     <string name="game_view_content_description">Game View</string>
+
+    <!-- Main Activity -->
     <string name="button_earth">Earth</string>
+    <string name="tv_title">Demo Ivès</string>
+    <string name="tv_author">Esteban Motais</string>
+
+    <!-- Unity Activity -->
+    <string name="tv_zoom">Zoom</string>
+    <string name="tv_rotation">Rotation</string>
+    <string name="button_reset">Reset</string>
+
 </resources>

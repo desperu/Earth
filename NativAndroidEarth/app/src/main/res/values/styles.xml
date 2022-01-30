@@ -18,7 +18,7 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/default_edit_text_size</item>
         <item name="android:padding">@dimen/default_margin</item>
-        <item name="android:background">@drawable/source_link_button</item>
+        <item name="android:background">@drawable/base_button</item>
     </style>
 
 </resources>
