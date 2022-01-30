@@ -38,15 +38,11 @@ struct Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1;
 struct Void_t700C6383A2A510C2CF4DD86DABD5CA9FF70ADAC5;
 
 IL2CPP_EXTERN_C RuntimeClass* AndroidJavaObject_t10188D5695DCD09C9F621B44B0A8C93A2281236E_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C String_t* _stringLiteral15C416CACE0E156CD0B0074FF373851FA16C1CA4;
-IL2CPP_EXTERN_C String_t* _stringLiteral187EC8881C01FA650D296E9A3D6B55A4D1984B68;
 IL2CPP_EXTERN_C String_t* _stringLiteral23114468D04FA2B7A2DA455B545DB914D0A3ED94;
-IL2CPP_EXTERN_C String_t* _stringLiteral240AE463CF76928C14371ED98153092C84DA50AB;
 IL2CPP_EXTERN_C String_t* _stringLiteral34EBAAB35B7ECE813195D3B9B4BF800549522FFE;
-IL2CPP_EXTERN_C String_t* _stringLiteralCDA54159DE030C6CE3124B3DEA3862F82DBC3783;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_Empty_TisRuntimeObject_m1FBC21243DF3542384C523801E8CA8A97606C747_RuntimeMethod_var;
 
 struct ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE;
@@ -788,10 +784,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Int32_Parse_mE5D220FEA7F0BFB1B220B2A3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MonoBehaviour__ctor_mC0995D847F6A95B1A553652636C38A2AA8B13BED (MonoBehaviour_t37A501200D970A8257124B0EAE00A0FF3DDC354A * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.Transform::set_position(UnityEngine.Vector3)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_set_position_mB169E52D57EEAC1E3F22C5395968714E4F00AC91 (Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1 * __this, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___value0, const RuntimeMethod* method);
-// System.Void UnityEngine.Debug::Log(System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Debug_Log_mC26E5AD0D8D156C7FFD173AA15827F69225E9DB8 (RuntimeObject * ___message0, const RuntimeMethod* method);
-// System.String System.String::Concat(System.String,System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m4B4AB72618348C5DFBFBA8DED84B9E2EBDB55E1B (String_t* ___str00, String_t* ___str11, const RuntimeMethod* method);
 // System.Void UnityEngine.Vector3::.ctor(System.Single,System.Single,System.Single)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector3__ctor_m57495F692C6CE1CEF278CAD9A98221165D37E636_inline (Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E * __this, float ___x0, float ___y1, float ___z2, const RuntimeMethod* method);
 #ifdef __clang__
@@ -858,11 +850,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EarthRotation_Update_m65907604F4C6A19561
 		float L_4 = V_0;
 		NullCheck(L_3);
 		Transform_Rotate_mA3AE6D55AA9CC88A8F03C2B0B7CB3DB45ABA6A8E(L_3, (0.0f), L_4, (0.0f), /*hidden argument*/NULL);
-		// communicationBridge.Call("displayRotation", $"{speed}", $"{newSpeed}");
+		// communicationBridge.Call("displayRotation", $"{newSpeed}");
 		AndroidJavaObject_t10188D5695DCD09C9F621B44B0A8C93A2281236E * L_5 = __this->get_communicationBridge_5();
-		ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE* L_6 = (ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE*)(ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE*)SZArrayNew(ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE_il2cpp_TypeInfo_var, (uint32_t)2);
+		ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE* L_6 = (ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE*)(ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE*)SZArrayNew(ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE_il2cpp_TypeInfo_var, (uint32_t)1);
 		ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE* L_7 = L_6;
-		float L_8 = __this->get_speed_4();
+		float L_8 = V_0;
 		float L_9 = L_8;
 		RuntimeObject * L_10 = Box(Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_il2cpp_TypeInfo_var, &L_9);
 		String_t* L_11;
@@ -870,32 +862,23 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EarthRotation_Update_m65907604F4C6A19561
 		NullCheck(L_7);
 		ArrayElementTypeCheck (L_7, L_11);
 		(L_7)->SetAt(static_cast<il2cpp_array_size_t>(0), (RuntimeObject *)L_11);
-		ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE* L_12 = L_7;
-		float L_13 = V_0;
-		float L_14 = L_13;
-		RuntimeObject * L_15 = Box(Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_il2cpp_TypeInfo_var, &L_14);
-		String_t* L_16;
-		L_16 = String_Format_mB3D38E5238C3164DB4D7D29339D9E225A4496D17(_stringLiteral23114468D04FA2B7A2DA455B545DB914D0A3ED94, L_15, /*hidden argument*/NULL);
-		NullCheck(L_12);
-		ArrayElementTypeCheck (L_12, L_16);
-		(L_12)->SetAt(static_cast<il2cpp_array_size_t>(1), (RuntimeObject *)L_16);
 		NullCheck(L_5);
-		AndroidJavaObject_Call_mBB226DA52CE5A2FCD9A2D42BC7FB4272E094B76D(L_5, _stringLiteral15C416CACE0E156CD0B0074FF373851FA16C1CA4, L_12, /*hidden argument*/NULL);
+		AndroidJavaObject_Call_mBB226DA52CE5A2FCD9A2D42BC7FB4272E094B76D(L_5, _stringLiteral15C416CACE0E156CD0B0074FF373851FA16C1CA4, L_7, /*hidden argument*/NULL);
 		// if (Application.platform == RuntimePlatform.Android)
-		int32_t L_17;
-		L_17 = Application_get_platform_mB22F7F39CDD46667C3EF64507E55BB7DA18F66C4(/*hidden argument*/NULL);
-		if ((!(((uint32_t)L_17) == ((uint32_t)((int32_t)11)))))
+		int32_t L_12;
+		L_12 = Application_get_platform_mB22F7F39CDD46667C3EF64507E55BB7DA18F66C4(/*hidden argument*/NULL);
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)11)))))
 		{
-			goto IL_0080;
+			goto IL_0068;
 		}
 	}
 	{
 		// if (Input.GetKey(KeyCode.Escape))
-		bool L_18;
-		L_18 = Input_GetKey_mFDD450A4C61F2930928B12287FFBD1ACCB71E429(((int32_t)27), /*hidden argument*/NULL);
-		if (!L_18)
+		bool L_13;
+		L_13 = Input_GetKey_mFDD450A4C61F2930928B12287FFBD1ACCB71E429(((int32_t)27), /*hidden argument*/NULL);
+		if (!L_13)
 		{
-			goto IL_0080;
+			goto IL_0068;
 		}
 	}
 	{
@@ -903,7 +886,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EarthRotation_Update_m65907604F4C6A19561
 		Application_Quit_m8D720E5092786C2EE32310D85FE61C253D3B1F2A(/*hidden argument*/NULL);
 	}
 
-IL_0080:
+IL_0068:
 	{
 		// }
 		return;
@@ -996,17 +979,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EarthZoom_Update_mC63EDE4C861D06B0CD1E92
 // System.Void EarthZoom::ResetScale()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EarthZoom_ResetScale_m371EC753856E04B7815742185CF72164CA5729A2 (EarthZoom_tC613443CD800D9330108D06D53007EA5924913EB * __this, const RuntimeMethod* method)
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralCDA54159DE030C6CE3124B3DEA3862F82DBC3783);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		// Debug.Log("Coming from Android: resetScale");
-		IL2CPP_RUNTIME_CLASS_INIT(Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
-		Debug_Log_mC26E5AD0D8D156C7FFD173AA15827F69225E9DB8(_stringLiteralCDA54159DE030C6CE3124B3DEA3862F82DBC3783, /*hidden argument*/NULL);
 		// positionChange = startPosition;
 		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_0 = __this->get_startPosition_6();
 		__this->set_positionChange_7(L_0);
@@ -1017,40 +990,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EarthZoom_ResetScale_m371EC753856E04B781
 // System.Void EarthZoom::UpdateScale(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EarthZoom_UpdateScale_m5CE3A77424C21B9C7D7A506C974E04B28CFD2FDE (EarthZoom_tC613443CD800D9330108D06D53007EA5924913EB * __this, String_t* ___zoom0, const RuntimeMethod* method)
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral187EC8881C01FA650D296E9A3D6B55A4D1984B68);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral240AE463CF76928C14371ED98153092C84DA50AB);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		// Debug.Log($"Coming from Android: updateScale {zoom}");
-		String_t* L_0 = ___zoom0;
-		String_t* L_1;
-		L_1 = String_Concat_m4B4AB72618348C5DFBFBA8DED84B9E2EBDB55E1B(_stringLiteral240AE463CF76928C14371ED98153092C84DA50AB, L_0, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
-		Debug_Log_mC26E5AD0D8D156C7FFD173AA15827F69225E9DB8(L_1, /*hidden argument*/NULL);
 		// positionChange = new Vector3(initialPosition, initialPosition, int.Parse(zoom));
-		String_t* L_2 = ___zoom0;
-		int32_t L_3;
-		L_3 = Int32_Parse_mE5D220FEA7F0BFB1B220B2A30797D7DD83ACF22C(L_2, /*hidden argument*/NULL);
-		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_4;
-		memset((&L_4), 0, sizeof(L_4));
-		Vector3__ctor_m57495F692C6CE1CEF278CAD9A98221165D37E636_inline((&L_4), (0.0f), (0.0f), ((float)((float)L_3)), /*hidden argument*/NULL);
-		__this->set_positionChange_7(L_4);
-		// communicationBridge.Call("displayZoom", zoom);
-		AndroidJavaObject_t10188D5695DCD09C9F621B44B0A8C93A2281236E * L_5 = __this->get_communicationBridge_8();
-		ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE* L_6 = (ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE*)(ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE*)SZArrayNew(ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE_il2cpp_TypeInfo_var, (uint32_t)1);
-		ObjectU5BU5D_tC1F4EE0DB0B7300255F5FD4AF64FE4C585CF5ADE* L_7 = L_6;
-		String_t* L_8 = ___zoom0;
-		NullCheck(L_7);
-		ArrayElementTypeCheck (L_7, L_8);
-		(L_7)->SetAt(static_cast<il2cpp_array_size_t>(0), (RuntimeObject *)L_8);
-		NullCheck(L_5);
-		AndroidJavaObject_Call_mBB226DA52CE5A2FCD9A2D42BC7FB4272E094B76D(L_5, _stringLiteral187EC8881C01FA650D296E9A3D6B55A4D1984B68, L_7, /*hidden argument*/NULL);
+		String_t* L_0 = ___zoom0;
+		int32_t L_1;
+		L_1 = Int32_Parse_mE5D220FEA7F0BFB1B220B2A30797D7DD83ACF22C(L_0, /*hidden argument*/NULL);
+		Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  L_2;
+		memset((&L_2), 0, sizeof(L_2));
+		Vector3__ctor_m57495F692C6CE1CEF278CAD9A98221165D37E636_inline((&L_2), (0.0f), (0.0f), ((float)((float)L_1)), /*hidden argument*/NULL);
+		__this->set_positionChange_7(L_2);
 		// }
 		return;
 	}
